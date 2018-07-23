@@ -1,0 +1,50 @@
+{
+  "name": "react-tvshows",
+  "version": "0.0.1",
+  "description": "React-TvShows - A Social Network of TV Shows with ReactJS.",
+  "author": {
+    "email": "tiago.silva.93@hotmail.com",
+    "name": "Tiago H Silva"
+  },
+  "private": true,
+  "main": "src/index.tsx",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "install": "^0.12.1",
+    "npm": "^6.2.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts-ts": "^2.16.0",
+    "styled-components": "^3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.0",
+    "@types/node": "^10.5.2",
+    "@types/react": "16.4.6",
+    "@types/react-dom": "16.0.6",
+    "@types/react-redux": "^6.0.4",
+    "@types/redux-actions": "^2.3.0",
+    "@types/redux-logger": "^3.0.6",
+    "@types/redux-mock-store": "^1.0.0",
+    "@types/remote-redux-devtools": "^0.5.3",
+    "eslint": "^5.1.0",
+    "eslint-plugin-react": "^7.10.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-actions": "^2.4.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.3",
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^0.16.0",
+    "redux-types": "^2.0.3",
+    "remote-redux-devtools": "^0.5.12",
+    "typescript": "^2.9.2"
+  }
+}
