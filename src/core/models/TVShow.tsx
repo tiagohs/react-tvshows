@@ -8,13 +8,13 @@ export interface BaseTVShow {
     original_language?: string;
     overview?: string;
     vote_count?: number;
-    popularity?: string;
+    popularity?: number;
     poster_path?: string;
     backdrop_path?: string;
     vote_average?: number;
     first_air_date?: string;
     origin_country?: string[];
-    genres_ids?: number[];
+    genre_ids?: number[];
 }
 
 export interface Genre {

@@ -9,7 +9,7 @@ import * as type from './actionsTypes';
 import * as actions from './actions';
 import { BaseTVShow } from '../../../core/models/TVShow';
 
-import { TVShowsController } from './../../../core/TMDB/TVShows';
+import { TVShowsController } from '../../../core/TMDB/TVShows';
 import { ListResult } from '../../../core/models/List';
 
 const controller = new TVShowsController();

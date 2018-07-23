@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { ListResult } from '../../../core/models/List';
-import { BaseTVShow } from '../../../core/models/TVShow';
-import * as actions from './../../../redux/modules/TVShow/actions';
-import { Reducers } from '../../../core/models/Redux';
+import { ListResult } from '@app/core/models/List';
+import { BaseTVShow } from '@app/core/models/TVShow';
+import { Reducers } from '@app/core/models/Redux';
+import * as actions from '@app/redux/modules/TVShow/actions';
+
+import ImageSliderContainer from '@app/ui/containers/ImageSliderContainer';
 
 interface Props {
     populars?: ListResult<BaseTVShow>;
@@ -13,6 +15,8 @@ interface Props {
 
 class Home extends React.Component<Props> {
     
+    props: Props;
+
     componentDidMount() {
         
         if (this.props.getPopulars) {
@@ -22,11 +26,10 @@ class Home extends React.Component<Props> {
     }
 
     render(): React.ReactNode {
-        const { populars } = this.props;
         
         return (
             <div>
-                <span> {populars && populars.total_pages} </span>
+                <ImageSliderContainer />
             </div>
         );
     }

@@ -1,5 +1,5 @@
-import BaseService from '../shared/BaseService';
-import { TMDB_BASE_URL, TMDB_API_KEY } from '../../config/constants';
+import BaseService from '@app/core//shared/BaseService';
+import { TMDB_BASE_URL, TMDB_API_KEY } from '@app/config/constants';
 
 class BaseTmdbService extends BaseService {
 

@@ -1,9 +1,11 @@
 
 import { AxiosResponse } from 'axios';
+
+import { ListResult } from '@app/core/models/List';
+import { BaseTVShow, TVShow } from '@app/core/models/TVShow';
+import { BaseListParams } from '@app/core/models/Params';
+
 import TVShowsService from './service';
-import { ListResult } from '../../models/List';
-import { BaseTVShow, TVShow } from '../../models/TVShow';
-import { BaseListParams } from '../../models/Params';
 
 class TVShowsController {
     private service: TVShowsService;

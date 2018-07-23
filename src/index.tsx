@@ -1,14 +1,19 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
+import { ThemeProvider } from 'styled-components';
 
-import Home from './ui/pages/Home';
+import { darkTheme } from '@app/config/styled/theme';
+import store from '@app/redux';
+import Home from '@app/ui/pages/Home';
 
-import store from './redux';
+import '@app/assets/css/styles.css';
 
 const App = () => (
     <Provider store={store}>
-        <Home />
+        <ThemeProvider theme={darkTheme}>
+            <Home />
+        </ThemeProvider>
     </Provider>
 );
 

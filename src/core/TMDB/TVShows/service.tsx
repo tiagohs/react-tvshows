@@ -1,5 +1,5 @@
-import BaseTMDBService from './../BaseTMDBService';
-import { BaseListParams, BaseDetailsParams } from '../../models/Params';
+import BaseTMDBService from '../BaseTMDBService';
+import { BaseListParams, BaseDetailsParams } from '@app/core/models/Params';
 
 class TVShowsService extends BaseTMDBService {
 
