@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { BaseTVShow } from '@app/core/models/TVShow';
-import Descriptor from '@app/ui/components/Descriptor';
+import Descriptor from '@app/ui/components/Highlights/Descriptor';
 import * as dataUtils from '@app/utils/date';
 import { getGenres } from '@app/utils/genres';
 

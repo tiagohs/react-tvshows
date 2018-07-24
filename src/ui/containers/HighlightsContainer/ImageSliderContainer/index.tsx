@@ -3,7 +3,7 @@ import React from 'react';
 import {
     SImageSliderContainer
 } from './styles';
-import ImageSlider, { ImageSliderItem } from '@app/ui/components/ImageSlider';
+import ImageSlider, { ImageSliderItem } from '@app/ui/components/Highlights/ImageSlider';
 import { BackdropLocalImages } from '@app/utils/Mocks/Images';
 import Button from '@app/ui/components/Button';
 

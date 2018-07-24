@@ -6,8 +6,8 @@ import { BaseTVShow } from '@app/core/models/TVShow';
 import { Reducers } from '@app/core/models/Redux';
 import * as actions from '@app/redux/modules/TVShow/actions';
 
-import ImageSliderContainer from '@app/ui/containers/ImageSliderContainer';
-import TVShowDescriptorContainer from '@app/ui/containers/TVShowDescriptorContainer';
+import ImageSliderContainer from '@app/ui/containers/HighlightsContainer/ImageSliderContainer';
+import TVShowDescriptorContainer from '@app/ui/containers/HighlightsContainer/TVShowDescriptorContainer';
 
 import { TVSHowList } from '@app/utils/Mocks/TVShows';
 import Button from '@app/ui/components/Button';
