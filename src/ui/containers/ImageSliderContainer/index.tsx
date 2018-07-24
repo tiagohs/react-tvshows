@@ -4,7 +4,7 @@ import {
     SImageSliderContainer
 } from './styles';
 import ImageSlider, { ImageSliderItem } from '@app/ui/components/ImageSlider';
-import { BackdropImages } from '@app/utils/Mocks/Images';
+import { BackdropLocalImages } from '@app/utils/Mocks/Images';
 import Button from '@app/ui/components/Button';
 
 interface Props {
@@ -24,7 +24,7 @@ class ImageSliderContainer extends React.Component<Props, State> {
         super(props);
 
         this.state = {
-            currentItem: BackdropImages[this.index]
+            currentItem: BackdropLocalImages[this.index]
         };
     }
 
@@ -32,7 +32,7 @@ class ImageSliderContainer extends React.Component<Props, State> {
         this.index = this.index + 1;
 
         this.setState({
-            currentItem: BackdropImages[this.index]
+            currentItem: BackdropLocalImages[this.index]
         });
     }
 
@@ -43,7 +43,7 @@ class ImageSliderContainer extends React.Component<Props, State> {
             <div>
                 <SImageSliderContainer>
                     <ImageSlider 
-                        images={BackdropImages} 
+                        images={BackdropLocalImages} 
                         currentImage={currentItem}
                         height="400px" 
                     />

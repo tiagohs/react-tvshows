@@ -7,15 +7,33 @@ import { Reducers } from '@app/core/models/Redux';
 import * as actions from '@app/redux/modules/TVShow/actions';
 
 import ImageSliderContainer from '@app/ui/containers/ImageSliderContainer';
+import TVShowDescriptorContainer from '@app/ui/containers/TVShowDescriptorContainer';
+
+import { TVSHowList } from '@app/utils/Mocks/TVShows';
+import Button from '@app/ui/components/Button';
 
 interface Props {
     populars?: ListResult<BaseTVShow>;
     getPopulars?: (page: number) => void;
 }
 
-class Home extends React.Component<Props> {
+interface State {
+    tvShow?: BaseTVShow;
+}
+
+const tvShowsList = TVSHowList.results;
+
+class Home extends React.Component<Props, State> {
     
-    props: Props;
+    index = 0;
+    
+    constructor(props: Props) {
+        super(props);
+
+        this.state = {
+            tvShow: tvShowsList[this.index]
+        };
+    }
 
     componentDidMount() {
         
@@ -25,11 +43,24 @@ class Home extends React.Component<Props> {
         
     }
 
+    onClick = () => {
+        this.index = this.index + 1;
+
+        this.setState({
+            tvShow: tvShowsList[this.index]
+        });
+    }
+
     render(): React.ReactNode {
-        
+        const { tvShow } = this.state;
+
         return (
             <div>
                 <ImageSliderContainer />
+                <TVShowDescriptorContainer 
+                    tvShow={tvShow}
+                />
+                <Button onClick={this.onClick}>Next</Button>
             </div>
         );
     }

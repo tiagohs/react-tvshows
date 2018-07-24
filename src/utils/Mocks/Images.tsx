@@ -22,3 +22,30 @@ export const BackdropImages = [
         imageUrl: getImage('\/7gRvLvHH78YAdchOghNpH2EysJ2.jpg', 'original')
     },
 ];
+
+export const BackdropLocalImages = [
+    {
+        id: 1,
+        imageUrl: require('@app/assets/img/img-1.jpg')
+    },
+    {
+        id: 2,
+        imageUrl: require('@app/assets/img/img-2.jpg')
+    },
+    {
+        id: 3,
+        imageUrl: require('@app/assets/img/img-1.jpg')
+    },
+    {
+        id: 4,
+        imageUrl: require('@app/assets/img/img-2.jpg')
+    },
+    {
+        id: 5,
+        imageUrl: require('@app/assets/img/img-1.jpg')
+    },
+    {
+        id: 6,
+        imageUrl: require('@app/assets/img/img-2.jpg')
+    },
+];

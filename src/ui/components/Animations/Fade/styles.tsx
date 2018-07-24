@@ -1,21 +1,9 @@
-import styled from '@app/config/styled';
 
-export const STagsContainer = styled.div`
-    display: flex;
-`;
+import styled from '@app/config/styled';
 
 interface Props {
     state?: string;
 }
-
-export const SMainTitle = styled.h4`
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    padding-left: 10px;
-    color: ${props => props.theme.primaryTextColor};
-`;
 
 export const SFade = styled.div`
     opacity: 0;

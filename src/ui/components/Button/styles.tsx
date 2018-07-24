@@ -61,6 +61,6 @@ export const SButton = styled.button`
     }
 
     &:active {
-        transform: scale(0.98);
+        transform: scale(0.96);
     }
 `;

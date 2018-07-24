@@ -20,4 +20,15 @@ export const SImageContainer = styled.div`
     transition: linear 0.5s;
 
     opacity: ${(props: Props) => props.isVisible ? 1 : 0};
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: #000;
+        opacity: 0.6;
+    }
 `;
