@@ -1,13 +1,14 @@
 import styled, { keyframes } from '@app/config/styled';
-import Image from '@app/ui/components/Image';
 
 interface Props {
     state?: string;
+    width?: string;
+    height?: string;
 }
 
 const enterFromRight = keyframes`
   from {
-    transform: translateX(20px);
+    transform: translateX(50px);
     opacity: 0;
   }
 
@@ -18,13 +19,16 @@ const enterFromRight = keyframes`
 `;
 
 const exitToLeft = keyframes`
-  from {
+  0% {
     transform: scale(1) translateX(0);
     opacity: 1;
   }
-
-  to {
-    transform: scale(0.8) translateX(-30px);
+  50% {
+    transform: scale(0.8) translateX(-50px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.8) translateX(50px);
     opacity: 0;
   }
 `;
@@ -42,21 +46,58 @@ const containerBottomToTop = keyframes`
 `;
 
 const voteBottomToTop = keyframes`
-  from {
+  0% {
     bottom: 0;
     opacity: 0;
   }
-
-  to {
+  25% {
     bottom: 20px;
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.88);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  85% {
+    transform: scale(0.88);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
     opacity: 1;
   }
 `;
 
-export const SContainer = styled.div`
+const playButtonAnimation = keyframes`
+  0% {
+    transform: scale(0.88);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.11);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(0.88);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+`;
+
+export const SContainer = styled.div<Props>`
     position: relative;
-    width: 300px;
+    width: ${props => props.width || '100%'};
+    height: ${props => props.height || '100%'};
     transition: opacity 0.3s;
+    border-radius: 5px;
 
     &:before {
         content: '';
@@ -76,31 +117,19 @@ export const SContainer = styled.div`
     }
 
     ${(props: Props) => {
-        if (props.state === 'entering') {
+        if (props.state === 'entering' || props.state === 'entered') {
             return `animation: ${enterFromRight} 0.3s linear;
             transform: translateY(0);`;
         }
 
-        if (props.state === 'entered') {
-            return 'opacity: 1';
-        }
-
         if (props.state === 'exiting') {
-            return `animation: ${exitToLeft} 0.5s linear;
+            return `animation: ${exitToLeft} 1s linear;
             transform: translateY(0);
             opacity: 0;`;
         }
 
-        if (props.state === 'exited') {
-            return 'opacity: 0';
-        }
-        
         return '';
     }};
-`;
-
-export const SPoster = styled(Image)`
-
 `;
 
 export const SFooterContainer = styled.div`
@@ -112,18 +141,14 @@ export const SFooterContainer = styled.div`
     transition: all 0.3s;
 
     ${(props: Props) => {
-        if (props.state === 'entering') {
+        if (props.state === 'entering' || props.state === 'entered') {
             return `animation: ${containerBottomToTop} 0.3s linear;`;
         }
 
-        if (props.state === 'exiting') {
+        if (props.state === 'exiting' || props.state === 'exited') {
             return `opacity: 0;`;
         }
 
-        if (props.state === 'exited') {
-            return 'opacity: 0';
-        }
-        
         return '';
     }};
 `;
@@ -142,25 +167,52 @@ export const SVote = styled.span`
     width: 40px;
     height: 40px;
     border: 3px solid #3DB13D;
-    font-size: 12px;
+    font-size: 14px;
+    color: #3DB13D;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s;
 
     ${(props: Props) => {
-        if (props.state === 'entering') {
-            return `animation: ${voteBottomToTop} 0.3s linear;`;
+        if (props.state === 'entering' || props.state === 'entered') {
+            return `animation: ${voteBottomToTop} 1.2s linear;`;
         }
 
-        if (props.state === 'exiting') {
+        if (props.state === 'exiting' || props.state === 'exited') {
             return `opacity: 0;`;
         }
 
-        if (props.state === 'exited') {
-            return 'opacity: 0';
+        return '';
+    }};
+
+`;
+
+export const SPlay = styled.div`
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    margin-left: -30px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border: 2px solid #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+
+    ${(props: Props) => {
+        if (props.state === 'entering' || props.state === 'entered') {
+            return `animation: ${playButtonAnimation} 0.6s linear;`;
         }
-        
+
+        if (props.state === 'exiting' || props.state === 'exited') {
+            return `opacity: 0;`;
+        }
+
         return '';
     }};
 

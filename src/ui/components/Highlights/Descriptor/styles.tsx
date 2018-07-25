@@ -37,16 +37,29 @@ const SBaseAnimatedComponent = css<Props>`
 
 export const SItemName = styled.h2<Props>`
     font-size: 35px;
-    line-height: 30px;
+    line-height: 45px;
+    margin: 20px 0;
     color: ${props => props.theme.primaryTextColor};
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 
     ${SBaseAnimatedComponent}
 `;
 
 export const SItemOverview = styled.p<Props>`
     font-size: 14px;
-    line-height: 20px;
+    line-height: 23px;
     padding: 10px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 
     ${SBaseAnimatedComponent}
 `;

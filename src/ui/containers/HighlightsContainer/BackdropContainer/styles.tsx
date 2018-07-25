@@ -1,6 +1,10 @@
 import styled from '@app/config/styled';
 
-export const SContainer = styled.div`
+interface Props {
+    height?: string;
+}
+
+export const SContainer = styled.div<Props>`
     width: 100%;
-    height: 400px;
+    height: ${(props) => props.height || '400px'};
 `;

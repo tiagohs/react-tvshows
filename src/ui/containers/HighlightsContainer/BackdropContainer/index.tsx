@@ -4,54 +4,53 @@ import {
     SContainer
 } from './styles';
 import Backdrop, { ImageSliderItem } from '@app/ui/components/Highlights/Backdrop';
-import { BackdropLocalImages } from '@app/utils/Mocks/Images';
-import Button from '@app/ui/components/Button';
+import { BaseTVShow } from '@app/core/models/TVShow';
+import { getImage } from '@app/utils/images';
 
 interface Props {
-
+    items?: BaseTVShow[];
+    height?: string;
+    onChange?: (currentTvShow: BaseTVShow) => void;
 }
 
-interface State {
-    currentItem: ImageSliderItem;
-}
-
-class BackdropContainer extends React.Component<Props, State> {
+class BackdropContainer extends React.Component<Props> {
     static defaultProps: Props;
 
-    private index: number = 0;
+    props: Props;
 
-    constructor(props: Props) {
-        super(props);
+    onChange = (currentImage: ImageSliderItem) => {
+        const { onChange, items } = this.props;
 
-        this.state = {
-            currentItem: BackdropLocalImages[this.index]
-        };
-    }
+        if (onChange && items) {
+            const tvShow = items.find(item => item.id === currentImage.id);
 
-    onClick = () => {
-        this.index = this.index + 1;
-
-        this.setState({
-            currentItem: BackdropLocalImages[this.index]
-        });
+            if (tvShow) {
+                onChange(tvShow);
+            }
+        }
     }
 
     render(): React.ReactNode {
-        const { currentItem } = this.state;
+        const { height } = this.props;
+        const images = this.props.items ? this.props.items.map(item => ({
+            id: item.id,
+            imageUrl: getImage(item.backdrop_path, 'original')
+        })) : [];
 
         return (
-            <div>
-                <SContainer>
-                    <Backdrop 
-                        images={BackdropLocalImages} 
-                        currentImage={currentItem}
-                        height="400px" 
-                    />
-                </SContainer>
-                <Button onClick={this.onClick}>Next</Button>
-            </div>
+            <SContainer height={height}>
+                <Backdrop 
+                    images={images} 
+                    height={height}
+                    onChange={this.onChange}
+                />
+            </SContainer>
         );
     }
 }
+
+BackdropContainer.defaultProps = {
+    height: '600px'
+};
 
 export default BackdropContainer;

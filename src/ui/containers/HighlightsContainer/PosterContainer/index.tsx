@@ -69,13 +69,15 @@ class PosterContainer extends React.Component<Props, State> {
             <div>
                 <Transition
                     in={show}
-                    timeout={500} 
+                    timeout={1000} 
                     onExited={this.onExit}
                 >
                     {(state: string) => 
                     <Poster 
                         tvShow={tvShow}
                         state={state}
+                        width="260px"
+                        height="400px"
                     />}
                     
                 </Transition>

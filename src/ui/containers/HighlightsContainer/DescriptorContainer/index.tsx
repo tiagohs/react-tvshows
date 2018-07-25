@@ -81,7 +81,7 @@ class TVShowDescriptorContainer extends React.Component<Props, State> {
     
             return (
                 <STagsContainer>
-                    <Tag text={year} outline={true} />
+                    <Tag text={year} outline={true} outlineColor="#fff" />
                     {genres.map(genre => (<Tag key={genre} text={genre} />))}
                 </STagsContainer>
             );

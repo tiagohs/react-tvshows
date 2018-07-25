@@ -4,6 +4,7 @@ import { Theme } from '@app/config/styled/models';
 interface Props {
     backgroundColor?: string;
     outline?: boolean;
+    outlineColor?: string;
     theme?: Theme;
 }
 
@@ -15,8 +16,8 @@ const DefaultStyle = css`
 
 const OutlineStyle = css`
     background-color: transparent;
-    color: ${(props: Props) => props.theme!!.secondaryTextColor};
-    border: 2px solid ${(props: Props) => props.theme!!.secondaryTextColor};
+    color: ${(props: Props) => props.outlineColor || props.theme!!.secondaryTextColor};
+    border: 2px solid ${(props: Props) => props.outlineColor || props.theme!!.secondaryTextColor};
     font-weight: 700;
 `;
 

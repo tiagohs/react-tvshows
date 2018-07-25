@@ -8,6 +8,7 @@ interface Props {
     text?: string;
     backgroundColor?: string;
     outline?: boolean;
+    outlineColor?: string;
 }
 
 class Tag extends React.Component<Props> {
