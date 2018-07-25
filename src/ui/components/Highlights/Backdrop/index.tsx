@@ -13,20 +13,20 @@ export interface ImageSliderItem {
 
 interface Props {
     images?: ImageSliderItem[];
-    currentImage: ImageSliderItem;
+    currentImage?: ImageSliderItem;
     height?: string;
 }
 
-class ImageSlider extends React.Component<Props> {
+class Backdrop extends React.Component<Props> {
     static defaultProps: Props;
 
-    renderImages = (images: ImageSliderItem[], currentImage: ImageSliderItem) => {
+    renderImages = (images: ImageSliderItem[], currentImage?: ImageSliderItem) => {
         const { height } = this.props;
         
         return images.map(imageItem => (
             <SImageContainer 
                 key={imageItem.id} 
-                isVisible={imageItem.id === currentImage.id}
+                isVisible={imageItem.id === currentImage!!.id}
                 height={height}
             >
                 <Image src={imageItem.imageUrl} />
@@ -47,4 +47,4 @@ class ImageSlider extends React.Component<Props> {
     }
 }
 
-export default ImageSlider;
+export default Backdrop;

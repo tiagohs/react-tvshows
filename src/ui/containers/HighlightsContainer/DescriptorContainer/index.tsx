@@ -108,15 +108,13 @@ class TVShowDescriptorContainer extends React.Component<Props, State> {
         const { show, tvShow } = this.state;
 
         return (
-            <div>
-                <Transition
-                    in={show}
-                    timeout={300} 
-                    onExited={this.onExit}
-                >
-                    {(state: string) => this.renderFade(state, tvShow)}
-                </Transition>
-            </div>
+            <Transition
+                in={show}
+                timeout={300} 
+                onExited={this.onExit}
+            >
+                {(state: string) => this.renderFade(state, tvShow)}
+            </Transition>
         );
     }
 }

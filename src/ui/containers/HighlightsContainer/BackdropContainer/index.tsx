@@ -1,9 +1,9 @@
 import React from 'react';
 
 import {
-    SImageSliderContainer
+    SContainer
 } from './styles';
-import ImageSlider, { ImageSliderItem } from '@app/ui/components/Highlights/ImageSlider';
+import Backdrop, { ImageSliderItem } from '@app/ui/components/Highlights/Backdrop';
 import { BackdropLocalImages } from '@app/utils/Mocks/Images';
 import Button from '@app/ui/components/Button';
 
@@ -15,7 +15,7 @@ interface State {
     currentItem: ImageSliderItem;
 }
 
-class ImageSliderContainer extends React.Component<Props, State> {
+class BackdropContainer extends React.Component<Props, State> {
     static defaultProps: Props;
 
     private index: number = 0;
@@ -41,17 +41,17 @@ class ImageSliderContainer extends React.Component<Props, State> {
 
         return (
             <div>
-                <SImageSliderContainer>
-                    <ImageSlider 
+                <SContainer>
+                    <Backdrop 
                         images={BackdropLocalImages} 
                         currentImage={currentItem}
                         height="400px" 
                     />
-                </SImageSliderContainer>
+                </SContainer>
                 <Button onClick={this.onClick}>Next</Button>
             </div>
         );
     }
 }
 
-export default ImageSliderContainer;
+export default BackdropContainer;

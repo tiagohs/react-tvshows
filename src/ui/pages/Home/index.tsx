@@ -6,11 +6,13 @@ import { BaseTVShow } from '@app/core/models/TVShow';
 import { Reducers } from '@app/core/models/Redux';
 import * as actions from '@app/redux/modules/TVShow/actions';
 
-import ImageSliderContainer from '@app/ui/containers/HighlightsContainer/ImageSliderContainer';
-import TVShowDescriptorContainer from '@app/ui/containers/HighlightsContainer/TVShowDescriptorContainer';
+import BackdropContainer from '@app/ui/containers/HighlightsContainer/BackdropContainer';
+import DescriptorContainer from '@app/ui/containers/HighlightsContainer/DescriptorContainer';
 
 import { TVSHowList } from '@app/utils/Mocks/TVShows';
 import Button from '@app/ui/components/Button';
+import PosterContainer from '@app/ui/containers/HighlightsContainer/PosterContainer';
+import styled from '@app/config/styled';
 
 interface Props {
     populars?: ListResult<BaseTVShow>;
@@ -22,6 +24,11 @@ interface State {
 }
 
 const tvShowsList = TVSHowList.results;
+
+const SCont = styled.div`
+    display: flex;
+    justify-content: center;
+`;
 
 class Home extends React.Component<Props, State> {
     
@@ -37,9 +44,9 @@ class Home extends React.Component<Props, State> {
 
     componentDidMount() {
         
-        if (this.props.getPopulars) {
+        /*if (this.props.getPopulars) {
             this.props.getPopulars(1);
-        }
+        }*/
         
     }
 
@@ -56,10 +63,16 @@ class Home extends React.Component<Props, State> {
 
         return (
             <div>
-                <ImageSliderContainer />
-                <TVShowDescriptorContainer 
+                <BackdropContainer />
+                <SCont>
+                    <PosterContainer 
+                        tvShow={tvShow}
+                    />
+                </SCont>
+                <DescriptorContainer 
                     tvShow={tvShow}
                 />
+                
                 <Button onClick={this.onClick}>Next</Button>
             </div>
         );
