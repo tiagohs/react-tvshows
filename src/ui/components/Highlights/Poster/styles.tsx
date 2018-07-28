@@ -92,6 +92,16 @@ const playButtonAnimation = keyframes`
   }
 `;
 
+const clickAnimation = keyframes`
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.88);
+  }
+`;
+
 export const SContainer = styled.div<Props>`
     position: relative;
     width: ${props => props.width || '100%'};
@@ -216,4 +226,11 @@ export const SPlay = styled.div`
         return '';
     }};
 
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+      animation: ${clickAnimation} 0.3s linear;
+    }
 `;

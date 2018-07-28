@@ -5,14 +5,14 @@ import { ThemeProvider } from 'styled-components';
 
 import { darkTheme } from '@app/config/styled/theme';
 import store from '@app/redux';
-import Home from '@app/ui/pages/Home';
 
 import '@app/assets/css/styles.css';
+import Root from '@app/ui/pages/Root';
 
 const App = () => (
     <Provider store={store}>
         <ThemeProvider theme={darkTheme}>
-            <Home />
+            <Root />
         </ThemeProvider>
     </Provider>
 );

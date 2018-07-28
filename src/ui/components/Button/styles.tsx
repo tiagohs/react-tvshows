@@ -1,10 +1,20 @@
-import styled, { css } from '@app/config/styled';
+import styled, { css, keyframes } from '@app/config/styled';
 import { Theme } from '@app/config/styled/models';
 
 interface Props {
     color?: string;
     theme?: Theme;
 }
+
+const clickAnimation = keyframes`
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.8);
+  }
+`;
 
 const Primary = css`
     background: ${(props: Props) => props.theme!!.buttonPrimaryBackgroundColor};
@@ -61,6 +71,6 @@ export const SButton = styled.button`
     }
 
     &:active {
-        transform: scale(0.96);
+        animation: ${clickAnimation} 0.3s linear;
     }
 `;

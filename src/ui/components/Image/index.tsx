@@ -12,6 +12,7 @@ interface Props {
     width?: string;
     height?: string;
     size?: string;
+    circular?: boolean;
 }
 
 interface State {
@@ -67,7 +68,7 @@ class Image extends React.Component<Props, State> {
     }
 
     renderPlaceholder = () => {
-        const { size, width, height, placeholder } = this.props;
+        const { size, width, height, placeholder, circular } = this.props;
         const { loaded, error } = this.state;
 
         return (!loaded && !error) && (
@@ -76,16 +77,19 @@ class Image extends React.Component<Props, State> {
                 size={size}
                 width={width}
                 height={height} 
+                circular={circular}
             />
         ); 
     }
 
     render(): React.ReactNode {
-        const { size, width, height, placeholder } = this.props;
+        const { size, width, height, placeholder, circular } = this.props;
         const { src, loading } = this.state;
 
         return (
-            <SContainer>
+            <SContainer 
+                height={height} 
+            >
                 {this.renderPlaceholder()}
                 <SImage 
                     key={src}
@@ -97,6 +101,7 @@ class Image extends React.Component<Props, State> {
                     onError={this.onError}
                     onLoad={this.onLoad}
                     loading={loading}
+                    circular={circular}
                 />
                 
             </SContainer>
@@ -108,7 +113,8 @@ Image.defaultProps = {
     size: 'cover',
     width: '100%',
     height: '100%',
-    placeholder: defaultPlaceholder
+    placeholder: defaultPlaceholder,
+    circular: false
 };
 
 export default Image;

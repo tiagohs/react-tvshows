@@ -9,6 +9,12 @@ import * as actions from '@app/redux/modules/TVShow/actions';
 import { TVSHowList } from '@app/utils/Mocks/TVShows';
 import HighlightsContainer from '@app/ui/containers/HighlightsContainer';
 
+import {
+    SContent,
+    SCarouselContainer
+} from './styles';
+import CarouselContainer from '@app/ui/containers/CarouselContainer';
+
 interface Props {
     populars?: ListResult<BaseTVShow>;
     getPopulars?: (page: number) => void;
@@ -43,11 +49,14 @@ class Home extends React.Component<Props, State> {
     render(): React.ReactNode {
 
         return (
-            <div>
+            <SContent>
                 <HighlightsContainer
                     populars={TVSHowList}
                 />
-            </div>
+                <SCarouselContainer>
+                    <CarouselContainer />
+                </SCarouselContainer>
+            </SContent>
         );
     }
 }
