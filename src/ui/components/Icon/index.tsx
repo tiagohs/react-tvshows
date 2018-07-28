@@ -11,11 +11,19 @@ interface Props {
     color?: string;
     width?: string;
     height?: string;
-
+    clickable?: boolean;
+    onClick?: () => void;
 }
 
 const localIcons = {
     'computer': ComputerIcon
+};
+
+const onIconClick = ({ onClick }: Props) => {
+
+    if (onClick) {
+        onClick();
+    }
 };
 
 const Icon = (props: Props) => {
@@ -30,7 +38,13 @@ const Icon = (props: Props) => {
     }
 
     return (
-        <SIcon className={`fa fa-${props.name}`} size={props.size} color={props.color} />
+        <SIcon 
+            className={`fa fa-${props.name}`} 
+            size={props.size} 
+            color={props.color} 
+            clickable={props.clickable} 
+            onClick={() => onIconClick(props)}
+        />
     );
 };
 

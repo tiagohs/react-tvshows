@@ -6,6 +6,8 @@ import Poster from '@app/ui/components/Highlights/Poster';
 
 interface Props {
     tvShow?: BaseTVShow;
+    width?: string;
+    height?: string;
 }
 
 interface State {
@@ -63,6 +65,7 @@ class PosterContainer extends React.Component<Props, State> {
     }
 
     render(): React.ReactNode {
+        const { width, height } = this.props;
         const { tvShow, show } = this.state;
 
         return (
@@ -76,8 +79,8 @@ class PosterContainer extends React.Component<Props, State> {
                     <Poster 
                         tvShow={tvShow}
                         state={state}
-                        width="260px"
-                        height="400px"
+                        width={width}
+                        height={height}
                     />}
                     
                 </Transition>

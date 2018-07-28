@@ -8,8 +8,8 @@ import {
 import SubMenu from '@app/ui/components/SubMenu';
 import Image from '@app/ui/components/Image';
 
-interface Props {
-    
+export interface UserBarProps {
+    withName?: boolean;
 }
 
 interface State {
@@ -18,9 +18,10 @@ interface State {
 
 const profileImage = require('@app/assets/img/perfil.jpg');
 
-class UserBar extends React.Component<Props, State> {
-    
-    constructor(props: Props) {
+class UserBar extends React.Component<UserBarProps, State> {
+    static defaultProps: UserBarProps;
+
+    constructor(props: UserBarProps) {
         super(props);
         
         this.state = {
@@ -35,12 +36,13 @@ class UserBar extends React.Component<Props, State> {
     }
     
     render(): React.ReactNode {
+        const { withName } = this.props;
         const { show } = this.state;
 
         return (
             <SContent>
                 <SUserContainer onClick={this.onClick}>
-                    <SName>Tiago Henrique</SName>
+                    {withName && <SName>Tiago Henrique</SName>}
                     <Image 
                         src={profileImage} 
                         width="35px"
@@ -55,5 +57,9 @@ class UserBar extends React.Component<Props, State> {
         );
     }
 }
+
+UserBar.defaultProps = {
+    withName: false
+};
 
 export default UserBar;

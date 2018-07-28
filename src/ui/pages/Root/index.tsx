@@ -1,15 +1,13 @@
 import React from 'react';
 
-import Header from '@app/ui/components/Header';
 import Home from '@app/ui/pages/Home';
 
 import {
-    SContent,
-    SSidebarContainer,
-    SPagesContainer,
-    SHeaderContainer
+    SContent
 } from './styles';
-import Sidebar from '@app/ui/components/Sidebar';
+import HeaderContainer from '@app/ui/containers/HeaderContainer';
+import SidebarContainer from '@app/ui/containers/SidebarContainer';
+import PageContainer from '@app/ui/containers/PageContainer';
 
 interface Props {
     getPopulars?: (page: number) => void;
@@ -21,16 +19,12 @@ class Root extends React.Component<Props> {
 
         return (
             <div>
-                <SHeaderContainer>
-                    <Header />
-                </SHeaderContainer>
+                <HeaderContainer />
                 <SContent>
-                    <SSidebarContainer>
-                        <Sidebar />
-                    </SSidebarContainer>
-                    <SPagesContainer>
+                    <SidebarContainer />
+                    <PageContainer>
                         <Home />
-                    </SPagesContainer>
+                    </PageContainer>
                 </SContent>
             </div>
         );

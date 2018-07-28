@@ -8,6 +8,7 @@ import { BaseTVShow } from '@app/core/models/TVShow';
 import { getImage } from '@app/utils/images';
 
 interface Props {
+    directionIconSize?: number;
     items?: BaseTVShow[];
     height?: string;
     onChange?: (currentTvShow: BaseTVShow) => void;
@@ -31,7 +32,7 @@ class BackdropContainer extends React.Component<Props> {
     }
 
     render(): React.ReactNode {
-        const { height } = this.props;
+        const { height, directionIconSize } = this.props;
         const images = this.props.items ? this.props.items.map(item => ({
             id: item.id,
             imageUrl: getImage(item.backdrop_path, 'original')
@@ -40,9 +41,10 @@ class BackdropContainer extends React.Component<Props> {
         return (
             <SContainer height={height}>
                 <Backdrop 
-                    images={images} 
+                    images={images}  
                     height={height}
                     onChange={this.onChange}
+                    directionIconSize={directionIconSize}
                 />
             </SContainer>
         );

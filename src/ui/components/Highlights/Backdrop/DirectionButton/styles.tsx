@@ -1,38 +1,21 @@
-import styled, { css, keyframes } from '@app/config/styled';
+import styled, { css } from '@app/config/styled';
+import { MEDIUM_DEVICES_BREAKPOINT } from '@app/ui/containers/BaseContainer';
 
 interface Props {
     disable?: boolean;
 }
-
-const clickAnimation = keyframes`
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(0.8);
-  }
-`;
 
 const disable = css`
     cursor: initial;
     opacity: 0.4;
 `;
 
-const enable = css`
-    cursor: pointer;
-
-    &:hover {
-        opacity: 0.8;
-    }
-
-    &:active {
-        animation: ${clickAnimation} 0.3s linear;
-    }
-`;
-
 export const SContainer = styled.div<Props>`
-    padding: 30px 20px;
+    padding: 20px 10px;
 
-    ${props => props.disable ? disable : enable}
+    ${props => props.disable && disable}
+
+    @media (min-width: ${MEDIUM_DEVICES_BREAKPOINT}px) {
+        padding: 30px 20px;
+    }
 `;

@@ -16,7 +16,8 @@ export interface ImageSliderItem {
     imageUrl: string;
 }
 
-interface Props {
+export interface BackdropProps {
+    directionIconSize?: number;
     images?: ImageSliderItem[];
     height?: string;
     initialIndex?: number;
@@ -27,13 +28,13 @@ interface State {
     currentItem?: ImageSliderItem;
 }
 
-class Backdrop extends React.Component<Props, State> {
-    static defaultProps: Props;
+class Backdrop extends React.Component<BackdropProps, State> {
+    static defaultProps: BackdropProps;
 
     private originalItems: ImageSliderItem[];
     private index: number = 0;
 
-    constructor(props: Props) {
+    constructor(props: BackdropProps) {
         super(props);
 
         this.originalItems = props.images || [];
@@ -124,7 +125,7 @@ class Backdrop extends React.Component<Props, State> {
     }
 
     render(): React.ReactNode {
-        const { images } = this.props;
+        const { images, directionIconSize } = this.props;
         const { currentItem } = this.state;
 
         return (
@@ -134,12 +135,14 @@ class Backdrop extends React.Component<Props, State> {
                 <SRightButton onClick={this.onNext}>
                     <DirectionButton 
                         iconName="chevron-right" 
+                        iconSize={directionIconSize}
                         disable={this.index === (this.originalItems.length - 1)}
                     />
                 </SRightButton>
                 <SLeftButton onClick={this.onPrevious}>
                     <DirectionButton 
                         iconName="chevron-left" 
+                        iconSize={directionIconSize}
                         disable={this.index === 0}
                     />
                 </SLeftButton>

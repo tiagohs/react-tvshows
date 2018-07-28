@@ -2,7 +2,13 @@ import styled from '@app/config/styled';
 
 export const SContent = styled.div`
     position: relative;
-    overflow: hidden;
+    overflow-x: scroll;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    
+    ::-webkit-scrollbar { 
+        display: none; 
+    }
 `;
 
 export const SItemsContainer = styled.div`

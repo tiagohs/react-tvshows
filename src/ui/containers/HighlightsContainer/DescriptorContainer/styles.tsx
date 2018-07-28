@@ -1,4 +1,5 @@
 import styled from '@app/config/styled';
+import { MEDIUM_DEVICES_BREAKPOINT } from '@app/ui/containers/BaseContainer';
 
 export const STagsContainer = styled.div`
     display: flex;
@@ -10,11 +11,16 @@ interface Props {
 
 export const SMainTitle = styled.h4`
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     padding-left: 10px;
     color: ${props => props.theme.primaryTextColor};
+
+    @media (min-width: ${MEDIUM_DEVICES_BREAKPOINT}px) {
+        font-size: 14px;
+        letter-spacing: 5px;
+    }
 `;
 
 export const SFade = styled.div`

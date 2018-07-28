@@ -1,4 +1,4 @@
-import React, { MouseEvent }  from 'react';
+import React from 'react';
 
 import {
     SContainer
@@ -14,28 +14,35 @@ export interface ImageSliderItem {
 
 interface Props {
     iconName: string;
+    iconSize?: number;
     disable?: boolean;
-    onClick?: (event: MouseEvent<HTMLDivElement>) => void;
+    onClick?: () => void;
     theme: Theme;
 }
 
 class DirectionButton extends React.Component<Props> {
     static defaultProps: Props;
 
-    onClick = (event: MouseEvent<HTMLDivElement>) => {
+    onClick = () => {
         const { onClick } = this.props;
 
         if (onClick) {
-            onClick(event);
+            onClick();
         }
     }
 
     render(): React.ReactNode {
-        const { iconName, theme, disable } = this.props;
+        const { iconName, iconSize, theme, disable } = this.props;
 
         return (
-            <SContainer onClick={this.onClick} disable={disable}>
-                <Icon size={50} name={iconName} color={theme.primaryLightColor} />
+            <SContainer disable={disable} >
+                <Icon 
+                    size={iconSize || 50} 
+                    name={iconName} 
+                    color={theme.primaryLightColor} 
+                    onClick={this.onClick} 
+                    clickable={!disable}
+                />
             </SContainer>
         );
     }

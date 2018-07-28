@@ -2,8 +2,7 @@ import React from 'react';
 
 import {
     SContent, 
-    SInput,
-    SIconContainer
+    SInput
 } from './styles';
 import Icon from '@app/ui/components/Icon';
 
@@ -37,13 +36,13 @@ class SearchBar extends React.Component<Props, State> {
         return (
             <SContent>
                 <SInput type="text" placeholder="Procure por alguma série" show={show} />
-                <SIconContainer onClick={this.onClick} >
-                    <Icon 
-                        name="search" 
-                        size={18} 
-                        color="#fff"
-                    />
-                </SIconContainer>
+                <Icon 
+                    name="search" 
+                    size={18} 
+                    color="#fff"
+                    clickable={true}
+                    onClick={this.onClick}
+                />
             </SContent>
         );
     }

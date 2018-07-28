@@ -6,15 +6,27 @@ import {
 } from './styles';
 import Icon from '@app/ui/components/Icon';
 
-interface Props {
-
+export interface Props {
+    withTitle?: boolean;
 }
 
-const Logo = (props: Props) => (
-    <SContent>
-        <Icon name="computer" width="35px" />
-        <SAppTitle>React Tv Shows</SAppTitle>
-    </SContent>
-);
+class Logo extends React.Component<Props> {
+    static defaultProps: Props;
+
+    render(): React.ReactNode {
+        const { withTitle } = this.props;
+
+        return (
+            <SContent>
+                <Icon name="computer" width="35px" />
+                {withTitle && <SAppTitle>React Tv Shows</SAppTitle>}
+            </SContent>
+        );
+    }
+}
+
+Logo.defaultProps = {
+    withTitle: false,
+};
 
 export default Logo;

@@ -1,20 +1,10 @@
-import styled, { keyframes } from '@app/config/styled';
+import styled from '@app/config/styled';
 import { Theme } from '@app/config/styled/models';
 
 interface Props {
     show?: boolean;
     theme?: Theme;
 }
-
-const clickAnimation = keyframes`
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(0.8);
-  }
-`;
 
 export const SContent = styled.div`
     padding: 10px;
@@ -50,17 +40,5 @@ export const SInput = styled.input<Props>`
     ::placeholder {
         font-family: 'Montserrat', sans-serif;
         color: ${props => props.theme!!.secondaryTextColor};
-    }
-`;
-
-export const SIconContainer = styled.div`
-    cursor: pointer;
-    
-    &:hover {
-        opacity: 0.8;
-    }
-
-    &:active {
-        animation: ${clickAnimation} 0.3s linear;
     }
 `;

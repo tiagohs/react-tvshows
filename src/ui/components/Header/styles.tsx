@@ -10,4 +10,9 @@ export const SContent = styled.div`
 
 export const SRight = styled.div`
     display: flex;
+    align-items: center;
+`;
+
+export const SLeft = styled.div`
+    display: flex;
 `;

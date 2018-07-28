@@ -12,15 +12,15 @@ import { getImage } from '@app/utils/images';
 import Image from '@app/ui/components/Image';
 import Icon from '@app/ui/components/Icon';
 
-interface Props {
+export interface PosterProps {
     tvShow?: BaseTVShow;
     state?: string;
     width?: string;
     height?: string;
 }
 
-class Poster extends React.Component<Props> {
-    static defaultProps: Props;
+class Poster extends React.Component<PosterProps> {
+    static defaultProps: PosterProps;
 
     render(): React.ReactNode {
         const { state, tvShow, width, height } = this.props;
