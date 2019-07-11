@@ -6,11 +6,11 @@ import { Theme } from './models';
 const {
     default: styled,
     css,
-    injectGlobal,
+    createGlobalStyle,
     keyframes,
     ThemeProvider,
     withTheme
 } = styledComponents as ThemedStyledComponentsModule<Theme>;
 
-export { css, injectGlobal, keyframes, ThemeProvider, withTheme };
+export { css, createGlobalStyle, keyframes, ThemeProvider, withTheme };
 export default styled;

@@ -1,4 +1,4 @@
-import styled, { keyframes } from '@app/config/styled';
+import styled, { keyframes, css } from '@app/config/styled';
 
 interface Props {
     state?: string;
@@ -128,12 +128,12 @@ export const SContainer = styled.div<Props>`
 
     ${(props: Props) => {
         if (props.state === 'entering' || props.state === 'entered') {
-            return `animation: ${enterFromRight} 0.3s linear;
+            return css`animation: ${enterFromRight} 0.3s linear;
             transform: translateY(0);`;
         }
 
         if (props.state === 'exiting') {
-            return `animation: ${exitToLeft} 1s linear;
+            return css`animation: ${exitToLeft} 1s linear;
             transform: translateY(0);
             opacity: 0;`;
         }
@@ -152,7 +152,7 @@ export const SFooterContainer = styled.div`
 
     ${(props: Props) => {
         if (props.state === 'entering' || props.state === 'entered') {
-            return `animation: ${containerBottomToTop} 0.3s linear;`;
+            return css`animation: ${containerBottomToTop} 0.3s linear;`;
         }
 
         if (props.state === 'exiting' || props.state === 'exited') {
@@ -186,7 +186,7 @@ export const SVote = styled.span`
 
     ${(props: Props) => {
         if (props.state === 'entering' || props.state === 'entered') {
-            return `animation: ${voteBottomToTop} 1.2s linear;`;
+            return css`animation: ${voteBottomToTop} 1.2s linear;`;
         }
 
         if (props.state === 'exiting' || props.state === 'exited') {
@@ -216,7 +216,7 @@ export const SPlay = styled.div`
 
     ${(props: Props) => {
         if (props.state === 'entering' || props.state === 'entered') {
-            return `animation: ${playButtonAnimation} 0.6s linear;`;
+            return css`animation: ${playButtonAnimation} 0.6s linear;`;
         }
 
         if (props.state === 'exiting' || props.state === 'exited') {

@@ -25,7 +25,7 @@ export const SDescriptorContainer = styled.div`
 const SBaseAnimatedComponent = css<Props>`
     ${(props: Props) => {
         if (props.state === 'entered') {
-            return `animation: ${bottomToTop} ${props.duration ? props.duration / 1000 : (500 / 1000)}s linear;
+            return css`animation: ${bottomToTop} ${props.duration ? props.duration / 1000 : (500 / 1000)}s linear;
             transform: translateY(0);
             opacity: 1;`;
         }
